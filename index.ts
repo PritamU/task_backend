@@ -15,11 +15,10 @@ import metadataRoutes from "./src/routes/metadataRoutes/index";
 
 let app = express();
 
-const allowedOrigins = ["http://localhost:3000", "http://192.168.29.49:3000"];
-
 //config
 dotenv.config();
 app.use(morgan("dev"));
+const allowedOrigins = [process.env.CORS_DOMAIN];
 app.use(
   cors({
     origin: (origin, callback) => {
